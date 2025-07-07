@@ -12,3 +12,6 @@ public interface MyAction {
 // final answer: Yes, this is a valid functional interface.
 // ✔ It has exactly one abstract method (run()).
 // ✔ equals(Object obj) is a method from Object, and does not count toward the abstract method count.
+// 🔑 Key Rule:
+// Methods inherited from Object (like equals, hashCode, toString)
+// do not count toward the abstract method count in a functional interface.
