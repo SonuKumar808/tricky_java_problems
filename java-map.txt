@@ -1,0 +1,25 @@
+public class TrickyQuestion {
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(2, 4, 6, 8);
+        List<Integer> result = numbers.stream().map(
+                n -> {
+                    if (n == 6) return null;
+                    return n * 2;
+                }).collect(Collectors.toList());
+        System.out.println(result);
+    }
+}
+
+// Output: [4, 8, null, 16]
+⚠️ Tricky Part – Returning null in map()
+This line is key:
+if (n == 6) return null;
+◼ Java Streams allow null values to be returned in map().
+◼ However, when collecting to a List<Integer>, a null is inserted into the list.
+◼ So the result becomes: [4, 8, null, 16].
+
+🧪 Is this safe?
+Yes, this will compile and run successfully because:
+◼ map() can return null.
+◼ List<Integer> can contain null values.
+◼ System.out.println() prints the null as part of the list.
